@@ -9,7 +9,7 @@ import java.sql.Date;
 public class Location {
 
     @Id
-    private long id_user;
+    private long idUser;
 
     @Id
     private Date date;
@@ -20,12 +20,12 @@ public class Location {
     @Id
     private double latitude;
 
-    public long getId_user() {
-        return id_user;
+    public long getIdUser() {
+        return idUser;
     }
 
-    public void setId_user(long id_user) {
-        this.id_user = id_user;
+    public void setIdUser(long idUser) {
+        this.idUser = idUser;
     }
 
     public Date getDate() {

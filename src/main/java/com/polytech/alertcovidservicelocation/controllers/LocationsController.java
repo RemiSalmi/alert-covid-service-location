@@ -2,9 +2,9 @@ package com.polytech.alertcovidservicelocation.controllers;
 
 import com.polytech.alertcovidservicelocation.models.Location;
 import com.polytech.alertcovidservicelocation.models.LocationRepository;
-import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -16,9 +16,9 @@ public class LocationsController {
     private LocationRepository locationRepository;
 
 
-    @GetMapping
-    public List<Location> list() {
-        return locationRepository.findAll();
+    @GetMapping()
+    public List<Location> listByUser(@RequestParam long idUser) {
+        return locationRepository.findByIdUser(idUser);
     }
 
     @PostMapping
