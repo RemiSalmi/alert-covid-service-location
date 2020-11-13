@@ -36,8 +36,6 @@ public class LocationsController {
 
         var client = HttpClient.newHttpClient();
         String url = "http://146.59.234.45:8081/users/" + email;
-        System.out.println(url);
-        System.out.println(authorization);
         var request = HttpRequest.newBuilder(
                 URI.create(url))
                 .header("Authorization", authorization)

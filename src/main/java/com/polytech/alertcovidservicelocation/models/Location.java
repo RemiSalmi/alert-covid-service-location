@@ -2,6 +2,8 @@ package com.polytech.alertcovidservicelocation.models;
 
 import javax.persistence.*;
 import java.sql.Date;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Entity(name="contact_location_history")
 @Access(AccessType.FIELD)
@@ -12,7 +14,7 @@ public class Location {
     private long idUser;
 
     @Id
-    private Date date;
+    private LocalDateTime date;
 
     @Id
     private double longitude;
@@ -28,11 +30,11 @@ public class Location {
         this.idUser = idUser;
     }
 
-    public Date getDate() {
+    public LocalDateTime getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(LocalDateTime date) {
         this.date = date;
     }
 
