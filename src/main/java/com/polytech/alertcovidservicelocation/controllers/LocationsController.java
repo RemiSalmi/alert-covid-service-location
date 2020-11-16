@@ -6,6 +6,7 @@ import com.polytech.alertcovidservicelocation.models.LocationRepository;
 import com.polytech.alertcovidservicelocation.models.User;
 import com.polytech.alertcovidservicelocation.services.JsonBodyHandler;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.*;
@@ -25,6 +26,8 @@ import java.util.function.Supplier;
 public class LocationsController {
     @Autowired
     private LocationRepository locationRepository;
+    @Value("${USER_URL}")
+    private String userUrl;
 
 
     @GetMapping()
@@ -35,7 +38,7 @@ public class LocationsController {
         long idUser = 0;
 
         var client = HttpClient.newHttpClient();
-        String url = "http://146.59.234.45:8081/users/" + email;
+        String url = userUrl + email;
         var request = HttpRequest.newBuilder(
                 URI.create(url))
                 .header("Authorization", authorization)
